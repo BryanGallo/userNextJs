@@ -8,15 +8,19 @@ export default async function HomePage() {
     const users = await fetchUsers();
     console.log(users);
     return (
-        <main className="">
+        <main className="container mx-auto">
             <h2>Usuarios</h2>
             <div>
                 {users.length === 0
                     ? "No existen Usuarios"
                     : users.map((user) => (
-                          <div key={user.id}>
+                          <div
+                              key={user.id}
+                              className="bg-teal-600 rounded-md p-4 my-2"
+                          >
                               <p>{user.first_name}</p>
                               <p>{user.email}</p>
+                              <img className="rounded-full" src={user.avatar} />
                           </div>
                       ))}
             </div>
